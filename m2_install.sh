@@ -41,7 +41,7 @@ case "$1" in
         trap 'umount -R $MNT 2>/dev/null || true; losetup -d $LOOP 2>/dev/null || true' EXIT
 
         SRC_LABEL=$(blkid -s LABEL -o value "${LOOP}p1")
-        NEW_LABEL="${SRC_LABEL:-PS5_ROOT}_m2"
+        NEW_LABEL="${SRC_LABEL:-PS5_ROOT}-m2"
 
         EFI_DEV=$(findmnt -n -o SOURCE /boot/efi)
         if [ -z "$EFI_DEV" ]; then
