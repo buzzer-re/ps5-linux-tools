@@ -1,0 +1,13 @@
+[Unit]
+Description=Enable PS5 boost mode
+After=dev-mp1.device
+ConditionPathExists=/dev/mp1
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/ps5_control --boost on
+ExecStop=/usr/local/sbin/ps5_control --boost off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -7,6 +7,7 @@ fi
 
 NVME_PART="/dev/nvme0n1p1"
 MNT="/tmp/kexec_mnt"
+
 ROOT_LABEL=$(blkid -s LABEL -o value "$NVME_PART")
 
 if [ -z "$ROOT_LABEL" ]; then
